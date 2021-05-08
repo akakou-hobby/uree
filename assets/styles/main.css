@@ -1,0 +1,49 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#editor {
+  height: 100%;
+  padding: 0 5px;
+  padding-top: 2px;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+#side-icons {
+  background-color: #69696b;
+}
+
+#side-pallet {
+  background-color: #3d3f42;
+}
+
+#editor {
+  background-color: #fff;
+}
+
+#parent {
+  height: calc(100% - 30px);
+  margin: 0;
+}
+
+@media (min-width: 600px) {
+  #parent {
+    display: flex;
+  }
+  #side-icons {
+    flex-grow: 0.05;
+  }
+  #side-pallet {
+    flex-grow: 0.1;
+  }
+  #editor {
+    flex-grow: 1;
+    width: 30%;
+  }
+}

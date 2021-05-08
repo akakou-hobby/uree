@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <title>Editor</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/navber.css" />
   </head>
   <body>
     <ul class="topnav">
@@ -30,129 +32,6 @@
       </div>
     </div>
 
-    <script>
-      const editor = document.getElementById("editor");
-
-      const readNewFile = () => {
-        editor.innerText = "";
-      };
-    </script>
-
-    <style>
-      html {
-        height: 100%;
-      }
-
-      body {
-        height: 100%;
-        margin: 0;
-      }
-
-      #editor {
-        height: 100%;
-        padding: 0 5px;
-        padding-top: 2px;
-        max-height: 100%;
-        overflow-y: auto;
-      }
-
-      ul.topnav {
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        background-color: #1b2538;
-      }
-
-      ul.topnav li {
-        float: left;
-      }
-
-      ul.topnav li a {
-        display: block;
-        padding: 5px 5px;
-        text-align: center;
-        text-decoration: none;
-        color: white;
-      }
-
-      ul.topnav li a:hover:not(.active) {
-        background-color: #a9bce2;
-      }
-
-      ul.topnav > li > div {
-        background-color: #69696b;
-        border-top: 0;
-        border-radius: 0 0 4px 4px;
-        box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
-        display: none;
-        margin: 0;
-        opacity: 0;
-        position: absolute;
-        width: 100px;
-        visibility: hidden;
-        -webkit-transiton: opacity 0.2s;
-        transition: opacity 0.2s;
-      }
-      ul.topnav > li:hover > div {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-      }
-
-      ul.topnav > li > div ul {
-        padding: 0;
-      }
-
-      ul.topnav > li > div ul > li {
-        width: 100%;
-        display: block;
-      }
-      ul.topnav > li > div ul > li > a {
-        width: 100%;
-        color: #ffffff;
-        display: block;
-        /* padding: 12px 24px; */
-        text-decoration: none;
-      }
-      ul.topnav > li > div ul > li:hover > a {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-
-      #side-icons {
-        background-color: #69696b;
-      }
-
-      #side-pallet {
-        background-color: #3d3f42;
-      }
-
-      #editor {
-        background-color: #fff;
-      }
-
-      #parent {
-        height: calc(100% - 30px);
-        margin: 0;
-      }
-
-      @media (min-width: 600px) {
-        #parent {
-          display: flex;
-        }
-        #side-icons {
-          flex-grow: 0.05;
-        }
-        #side-pallet {
-          flex-grow: 0.1;
-        }
-        #editor {
-          flex-grow: 1;
-          width: 30%;
-        }
-      }
-    </style>
-
-    <script></script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>
