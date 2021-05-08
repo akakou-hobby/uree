@@ -7,6 +7,7 @@ import (
 	"github.com/sqweek/dialog"
 	"io/ioutil"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -32,7 +33,6 @@ func main() {
 	}
 }
 
-
 func openFile() string {
 	fileName, err := dialog.File().Title("Open").Filter("All Files", "*").Load()
 	if err != nil {
@@ -51,8 +51,11 @@ func openFile() string {
 func saveFile() {
 }
 
-func saveFileAsNew(body string) {
-	// file, err := dialog.File().Title("Save As").Filter("All Files", "*").Save()
-	// fmt.Println(file)
-	// fmt.Println("Error:", err)
+func saveFileAsNew(stringBody string) {
+	fileName, err := dialog.File().Title("Save As").Filter("All Files", "*").Save()
+	fmt.Println(fileName)
+	fmt.Println("Error:", err)
+
+	binaryBody := []byte(stringBody)
+	ioutil.WriteFile(fileName, binaryBody, os.ModePerm)
 }
