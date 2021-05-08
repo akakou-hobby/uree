@@ -9,9 +9,12 @@
         <a>File</a>
         <div>
           <ul>
-            <li><a onclick="ready_new_file()">New File</a></li>
-            <li><a onclick="open_file()">Open File</a></li>
-            <li><a onclick="save_file()">Save File</a></li>
+            <li><a onclick="readNewFile()">New File</a></li>
+            <li><a onclick="editor.innerText = openFile()">Open File</a></li>
+            <li><a onclick="saveFile()">Save File</a></li>
+            <li>
+              <a onclick="saveFileAsNew(editor.innerText)">Save File As</a>
+            </li>
           </ul>
         </div>
       </li>
@@ -26,6 +29,14 @@
         #include &lt;studio.h&gt;<br /><br />int main() {<br />}
       </div>
     </div>
+
+    <script>
+      const editor = document.getElementById("editor");
+
+      const readNewFile = () => {
+        editor.innerText = "";
+      };
+    </script>
 
     <style>
       html {

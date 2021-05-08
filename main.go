@@ -2,11 +2,15 @@
 package main
 
 import (
+	"fmt"
 	"github.com/ImVexed/muon"
+	"github.com/sqweek/dialog"
+	"io/ioutil"
 	"net/http"
 )
 
 func main() {
+	dialog.Message("%s", "It developed by akakou.").Title("UREE").Info()
 	fileHandler := http.FileServer(http.Dir("assets"))
 
 	cfg := &muon.Config{
@@ -19,13 +23,36 @@ func main() {
 
 	m := muon.New(cfg, fileHandler)
 
-	m.Bind("add", add)
+	m.Bind("openFile", openFile)
+	m.Bind("saveFile", saveFile)
+	m.Bind("saveFileAsNew", saveFileAsNew)
 
 	if err := m.Start(); err != nil {
 		panic(err)
 	}
 }
 
-func add(a float64, b float64) float64 {
-	return a + b
+
+func openFile() string {
+	fileName, err := dialog.File().Title("Open").Filter("All Files", "*").Load()
+	if err != nil {
+		dialog.Message("%s", err).Title("Error").Info()
+		return ""
+	}
+
+	bytes, err := ioutil.ReadFile(fileName)
+	if err != nil {
+		panic(err)
+	}
+
+	return string(bytes)
+}
+
+func saveFile() {
+}
+
+func saveFileAsNew(body string) {
+	// file, err := dialog.File().Title("Save As").Filter("All Files", "*").Save()
+	// fmt.Println(file)
+	// fmt.Println("Error:", err)
 }
