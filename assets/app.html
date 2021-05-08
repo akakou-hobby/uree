@@ -1,13 +1,97 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>MyApp -- (edit this title in app.html)</title>
-    <style>
-    body {
-      font-family: -apple-system, 'Segoe UI Light', Ubuntu, Arial, sans-serif;
-    }
-    </style>
+    <title>Editor</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <ul class="topnav">
+      <li><a>File</a></li>
+      <li><a>Edit</a></li>
+      <li><a>Selection</a></li>
+    </ul>
+    <div id="parent">
+      <div id="side-icons"></div>
+      <div id="side-pallet"></div>
+      <div contenteditable id="editor">
+        #include &lt;studio.h&gt;<br /><br />int main() {<br />}
+      </div>
+    </div>
+
+    <style>
+      html {
+        height: 100%;
+      }
+
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      #editor {
+        height: 100%;
+        padding: 0 5px;
+        padding-top: 2px;
+        max-height: 100%;
+        overflow-y: auto;
+      }
+
+      ul.topnav {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        background-color: #1b2538;
+      }
+
+      ul.topnav li {
+        float: left;
+      }
+
+      ul.topnav li a {
+        display: block;
+        padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+      }
+
+      ul.topnav li a:hover:not(.active) {
+        background-color: #a9bce2;
+      }
+
+      #side-icons {
+        background-color: #69696b;
+      }
+
+      #side-pallet {
+        background-color: #3d3f42;
+      }
+
+      #editor {
+        background-color: #fff;
+      }
+
+      #parent {
+        height: calc(100% - 30px);
+        margin: 0;
+      }
+
+      @media (min-width: 600px) {
+        #parent {
+          display: flex;
+        }
+        #side-icons {
+          flex-grow: 0.03;
+        }
+        #side-pallet {
+          flex-grow: 0.1;
+        }
+        #editor {
+          flex-grow: 1;
+        }
+      }
+    </style>
+
+    <script></script>
   </body>
 </html>
