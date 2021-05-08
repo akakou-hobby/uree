@@ -10,6 +10,8 @@ import (
 	"os"
 )
 
+var filePath string
+
 func main() {
 	dialog.Message("%s", "It developed by akakou.").Title("UREE").Info()
 	fileHandler := http.FileServer(http.Dir("assets"))
@@ -34,13 +36,16 @@ func main() {
 }
 
 func openFile() string {
-	fileName, err := dialog.File().Title("Open").Filter("All Files", "*").Load()
+	path, err := dialog.File().Title("Open").Filter("All Files", "*").Load()
+	
 	if err != nil {
 		dialog.Message("%s", err).Title("Error").Info()
 		return ""
 	}
 
-	bytes, err := ioutil.ReadFile(fileName)
+	filePath = path
+
+	bytes, err := ioutil.ReadFile(filePath)
 	if err != nil {
 		panic(err)
 	}
@@ -48,14 +53,24 @@ func openFile() string {
 	return string(bytes)
 }
 
-func saveFile() {
+func saveFile(stringBody string) {
+	fmt.Println("saved!")
+
+	binaryBody := []byte(stringBody)
+	ioutil.WriteFile(filePath, binaryBody, os.ModePerm)
 }
 
 func saveFileAsNew(stringBody string) {
-	fileName, err := dialog.File().Title("Save As").Filter("All Files", "*").Save()
-	fmt.Println(fileName)
+	path, err := dialog.File().Title("Save As").Filter("All Files", "*").Save()
+	
+	fmt.Println(path)
 	fmt.Println("Error:", err)
 
-	binaryBody := []byte(stringBody)
-	ioutil.WriteFile(fileName, binaryBody, os.ModePerm)
+	if err != nil {
+		dialog.Message("%s", err).Title("Error").Info()
+		return
+	}
+
+	filePath = path
+	saveFile(stringBody)
 }
