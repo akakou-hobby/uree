@@ -1,5 +1,5 @@
-const editor = document.getElementById("editor");
+var editor = document.getElementById("editor");
 
-const readNewFile = () => {
-  editor.innerText = "";
-};
+var pluginBar = document.getElementById("plugin-navber");
+
+pluginBar.innerHTML = loadNavbar();

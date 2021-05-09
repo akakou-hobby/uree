@@ -2,6 +2,14 @@ github.com/ImVexed/muon v0.0.0-20191017043257-ae2a6637f296 h1:2fUDWnDmWMlXQ867Cr
 github.com/ImVexed/muon v0.0.0-20191017043257-ae2a6637f296/go.mod h1:DkpeS5mqL3RyvGnhKG47yMrQSfsxtjgNXU7V1DC0q8g=
 github.com/TheTitanrain/w32 v0.0.0-20180517000239-4f5cfb03fabf h1:FPsprx82rdrX2jiKyS17BH6IrTmUBYqZa/CXT4uvb+I=
 github.com/TheTitanrain/w32 v0.0.0-20180517000239-4f5cfb03fabf/go.mod h1:peYoMncQljjNS6tZwI9WVyQB3qZS6u79/N3mBOcnd3I=
+github.com/akakou-hobby/uree-package v0.0.0-20210508134638-5c6fea3fe1f5 h1:2HMGRCMbsstHNs3JjAp0VlDoWms1KVqEbNabf/dXqEM=
+github.com/akakou-hobby/uree-package v0.0.0-20210508134638-5c6fea3fe1f5/go.mod h1:k89Qmsy8Q9QJ/X/wDov5ZMxskwrEvsS/alxnGILhqOY=
+github.com/akakou-hobby/uree-package v0.0.0-20210508140113-a1eb8e7b8d72 h1:jtgf+XIxSCK1cuLk5SM7Sm0QC2X5RHx3uzHjaTcfCCo=
+github.com/akakou-hobby/uree-package v0.0.0-20210508140113-a1eb8e7b8d72/go.mod h1:k89Qmsy8Q9QJ/X/wDov5ZMxskwrEvsS/alxnGILhqOY=
+github.com/akakou-hobby/uree-package v0.0.0-20210508145216-ce6fbda685e6 h1:PNey2UhlQik0xAhP3+VV/VXhn0xqDHRL7KT64Qs9ayA=
+github.com/akakou-hobby/uree-package v0.0.0-20210508145216-ce6fbda685e6/go.mod h1:k89Qmsy8Q9QJ/X/wDov5ZMxskwrEvsS/alxnGILhqOY=
+github.com/atotto/clipboard v0.1.4 h1:EH0zSVneZPSuFR11BlR9YppQTVDbh5+16AmcJi4g1z4=
+github.com/atotto/clipboard v0.1.4/go.mod h1:ZY9tmq7sm5xIbd9bOK4onWV4S6X0u6GY7Vn0Yu86PYI=
 github.com/sqweek/dialog v0.0.0-20200911184034-8a3d98e8211d h1:Chay1rwJnXxI27H+pzu7P81BKf647un9GOoRPTdXN18=
 github.com/sqweek/dialog v0.0.0-20200911184034-8a3d98e8211d/go.mod h1:/qNPSY91qTz/8TgHEMioAUc6q7+3SOybeKczHMXFcXw=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
