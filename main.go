@@ -137,10 +137,29 @@ func loadSidePallet() string {
 
 	for i := 0; i < len(side_pallet_pkgs); i++ {
 		pkg := side_pallet_pkgs[i]
-		// name := pkg.GetName()
-		// optional := pkg.SetUpOptional()
+		optional := pkg.SetUpOptional()
+
+		if optional == "" {
+			optional = "null"
+		}
+
+		func_name := fmt.Sprintf("slide_pallet_%d", i)
+
+		f := func(body string, optional string) string {
+			req := uree_package.Request{
+				Path:     filePath,
+				Body:     body,
+				Optional: optional,
+			}
+
+			resp := pkg.Run(req)
+			return resp.Body
+		}
+
+		m.Bind(func_name, f)
+
 		icon_path := pkg.GetIconPath()
-		icons += fmt.Sprintf("<img src='%s' class='icon' onclick='' />", icon_path)
+		icons += fmt.Sprintf("<img src='%s' class='icon' onclick=\"sidePallet.innerHTML=%s(document.body.innerHTML, `${%s}`)\" />", icon_path, func_name, optional)
 	}
 
 	fmt.Println(icons)

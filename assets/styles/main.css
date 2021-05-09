@@ -20,7 +20,13 @@ body {
 }
 
 #side-pallet {
+  min-width: 140px;
+
   background-color: #3d3f42;
+  color: #ffffff;
+  overflow: scroll;
+  overflow-x: scroll;
+  padding: 10px;
 }
 
 #editor {
@@ -33,7 +39,7 @@ body {
 }
 
 #side-icons {
-  width: 10px;
+  width: 20px;
   display: flex;
   flex-direction: column;
   background-color: #69696b;
@@ -62,4 +68,5 @@ body {
   margin-top: 10px;
   margin-bottom: 7px;
   display: block;
+  color: #fff;
 }
