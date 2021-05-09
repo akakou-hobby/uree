@@ -32,6 +32,12 @@ body {
   margin: 0;
 }
 
+#side-icons {
+  width: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
 @media (min-width: 600px) {
   #parent {
     display: flex;
@@ -46,4 +52,13 @@ body {
     flex-grow: 1;
     width: 30%;
   }
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 7px;
+  display: block;
 }

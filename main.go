@@ -126,3 +126,18 @@ func loadNavbar() string {
 
 	return nabver
 }
+
+func loadLeft() string {
+	nabver := ""
+	fmt.Println(len(navber_pkgs))
+
+	for i := 0; i < len(navber_pkgs); i++ {
+		pkg := navber_pkgs[i]
+		name := pkg.GetName()
+		optional := pkg.SetUpOptional()
+	}
+
+	fmt.Println(nabver)
+
+	return nabver
+}
