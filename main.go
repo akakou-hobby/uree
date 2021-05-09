@@ -15,7 +15,7 @@ import (
 
 var filePath string
 var m *muon.Window
-var navber_pkgs []NavberUreePackage
+var navber_pkgs []uree_package.UreeNavberPackage
 
 func main() {
 	dialog.Message("%s", "It developed by akakou.").Title("UREE").Info()
@@ -88,12 +88,6 @@ func saveFileAsNew(stringBody string) {
 
 	filePath = path
 	saveFile(stringBody)
-}
-
-type NavberUreePackage interface {
-	Run(uree_package.Request) uree_package.Response
-	SetUpOptional() string
-	GetName() string
 }
 
 func loadNavbar() string {
