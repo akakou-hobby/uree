@@ -68,6 +68,7 @@ func openFile() string {
 
 func saveFile(stringBody string) {
 	fmt.Println("%d saved!", filePath)
+	fmt.Println(stringBody)
 
 	stringBody = strings.Replace(stringBody, " ", " ", -1)
 	binaryBody := []byte(stringBody)
