@@ -16,6 +16,7 @@ import (
 var filePath string
 var m *muon.Window
 var navber_pkgs []uree_package.UreeNavberPackage
+var side_pallet_pkgs []uree_package.UreeLeftPackage
 
 func main() {
 	dialog.Message("%s", "It developed by akakou.").Title("UREE").Info()
@@ -35,10 +36,13 @@ func main() {
 	m.Bind("saveFile", saveFile)
 	m.Bind("saveFileAsNew", saveFileAsNew)
 	m.Bind("loadNavbar", loadNavbar)
+	m.Bind("loadSidePallet", loadSidePallet)
 
 	navber_pkgs = navber_packages()
+	side_pallet_pkgs = side_pallet_packages()
 
-	loadNavbar()
+	// loadNavbar()
+	// loadSidePallet()
 
 	if err := m.Start(); err != nil {
 		panic(err)
@@ -127,17 +131,19 @@ func loadNavbar() string {
 	return nabver
 }
 
-func loadLeft() string {
-	nabver := ""
-	fmt.Println(len(navber_pkgs))
+func loadSidePallet() string {
+	icons := ""
+	fmt.Println(len(side_pallet_pkgs))
 
-	for i := 0; i < len(navber_pkgs); i++ {
-		pkg := navber_pkgs[i]
-		name := pkg.GetName()
-		optional := pkg.SetUpOptional()
+	for i := 0; i < len(side_pallet_pkgs); i++ {
+		pkg := side_pallet_pkgs[i]
+		// name := pkg.GetName()
+		// optional := pkg.SetUpOptional()
+		icon_path := pkg.GetIconPath()
+		icons += fmt.Sprintf("<img src='%s' class='icon' onclick='' />", icon_path)
 	}
 
-	fmt.Println(nabver)
+	fmt.Println(icons)
 
-	return nabver
+	return icons
 }

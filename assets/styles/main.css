@@ -36,6 +36,7 @@ body {
   width: 10px;
   display: flex;
   flex-direction: column;
+  background-color: #69696b;
 }
 
 @media (min-width: 600px) {
