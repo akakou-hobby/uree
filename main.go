@@ -17,6 +17,7 @@ var filePath string
 var m *muon.Window
 var navber_pkgs []uree_package.UreeNavberPackage
 var side_pallet_pkgs []uree_package.UreeLeftPackage
+var on_change_event_pkgs []UreeOnChangeEventPackage
 
 func main() {
 	dialog.Message("%s", "It developed by akakou.").Title("UREE").Info()
@@ -37,12 +38,11 @@ func main() {
 	m.Bind("saveFileAsNew", saveFileAsNew)
 	m.Bind("loadNavbar", loadNavbar)
 	m.Bind("loadSidePallet", loadSidePallet)
+	m.Bind("onChangeEvent", onChangeEvent)
 
 	navber_pkgs = navber_packages()
 	side_pallet_pkgs = side_pallet_packages()
-
-	// loadNavbar()
-	// loadSidePallet()
+	on_change_event_pkgs = on_change_event_packages()
 
 	if err := m.Start(); err != nil {
 		panic(err)
@@ -165,4 +165,21 @@ func loadSidePallet() string {
 	fmt.Println(icons)
 
 	return icons
+}
+
+func onChangeEvent(body string, htmlBody string) string {
+	for i := 0; i < len(on_change_event_pkgs); i++ {
+		req := uree_package.Request{
+			Path:     filePath,
+			Body:     body,
+			Optional: htmlBody,
+		}
+
+		pkg := on_change_event_pkgs[i]
+		resp := pkg.Run(req)
+
+		body = resp.Body
+	}
+
+	return body
 }
